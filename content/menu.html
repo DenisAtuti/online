@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MENU</title>
+	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+	<script type="text/javascript" src="Jquery/jquery-3.2.1.min.js"></script>
+	<style type="text/css">
+		*{
+			padding:0;
+			margin:0;
+		}
+		body{
+			background: #fafafa;
+
+		}
+		#mobileDisplayIcon{
+			width: 100px;
+			height: auto;
+			cursor: pointer;
+		}
+		#mobileHideIcon{
+			font-size: 80px;
+			padding-left: 10px;
+			cursor: pointer;
+			font-weight: bold;
+			display: none;
+			
+		}
+		#mobileMenuIcon{
+			width: 50px;
+
+		}
+		.mobileNavMenu{
+			font-family: 'Quicksand', sans-serif;
+			background:black;
+			padding-left: 15px;
+			display: none;
+		}
+		.mobileNavMenu > div{
+		}
+		.mobileNavMenu a{
+			text-decoration: none;
+		}
+		.mobileNavMenu img{
+			padding-top: 5px;
+			padding: 5px;
+			float: left;
+			background:black;
+			clear: both;
+		}
+		.mobileNavMenu p{
+			padding: 20px;
+			margin-left: 80px;
+			background: #009688;
+			color: white;
+		}
+		.mobileNavMenu a:hover p{
+			background: white;
+			color: #009688;
+		}
+
+		
+	</style>
+</head>
+<body>
+	<img onclick="displayMobileMenu();" id="mobileDisplayIcon" src="image/threelines.png">
+	<span onclick="hideMobileMenu()" id="mobileHideIcon">&times;</span>
+	<div class=" mobileNavMenu" id=" mobileNavMenu">
+		<div>
+			<a href="#">
+				<img id="mobileMenuIcon" src="image/chemex.png">
+				<p>Speciality Coffee</p>
+			</a>
+		</div>
+		<!-- <div style="clear: both;"></div> -->
+		<div>
+			<a href="#">
+				<img id="mobileMenuIcon" src="image/clipart.jpg">
+				<p>Cupping</p>
+			</a>
+		</div>
+		<div>
+			<a href="#">
+				<img id="mobileMenuIcon" src="image/latteArt.jpg">
+				<p>Latte Art</p>
+			</a>
+		</div>
+		<div>
+			<a href="#">
+				<img id="mobileMenuIcon" src="image/bar.png">
+				<p>Service</p>
+			</a>
+		</div>
+		<div>
+			<a href="#">
+				<img id="mobileMenuIcon" style="width: 30px; padding: 15px;" src="image/experience.jpg">
+				<p>Experience</p>
+			</a>
+		</div>
+		<div>
+			<a href="#">
+				<img id="mobileMenuIcon" style="width: 30px; padding: 15px;" src="image/contact.png">
+				<p>Contact</p>
+			</a>
+		</div>
+		<div>
+			<a href="#">
+				<img id="mobileMenuIcon" src="image/download.png">
+				<p>Download</p>
+			</a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var mobileDisplayIcon = document.getElementById("mobileDisplayIcon");
+		var mobileNavMenu = document.getElementById(" mobileNavMenu");
+		var mobileHideIcon = document.getElementById("mobileHideIcon");
+
+		function displayMobileMenu() {
+			mobileNavMenu.style.display = "block";
+			mobileNavMenu.style.webkitTransition = "all ." + 40 + "s ease"; 
+			mobileHideIcon.style.display ="inline-block";
+			mobileDisplayIcon.style.display = "none";
+
+		}
+		function hideMobileMenu(){
+			mobileNavMenu.style.display = "none";
+			mobileHideIcon.style.display ="none";
+			mobileDisplayIcon.style.display = "block";
+		}
+	</script>
+</body>
+</html>

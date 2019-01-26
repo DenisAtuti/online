@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dennis Atuti</title>
+	<link rel="icon"  href="image/icon.png">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+	<!-- <script type="text/javascript" src="Jquery/jquery-3.2.1.min.js"></script> -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<style type="text/css">
+		*{
+			padding:0;
+			margin:0;
+		}
+		body{
+			background: #eeeeee;
+			font-family: 'Quicksand', sans-serif;
+		}
+		 /*THIS THE MOBILE SECTION*/
+		 #mobileDisplayIcon{
+			width: 50px;
+			margin: 20px;
+			height: auto;
+			cursor: pointer;
+			display: none;
+		}
+		#mobileHideIcon{
+			font-size: 80px;
+			margin-left: 20px;
+			cursor: pointer;
+			font-weight: bold;
+			display: none;
+			
+		}
+		#mobileMenuIcon{
+			width: 50px;
+
+		}
+		#mobileNavMenu{
+			font-family: 'Quicksand', sans-serif;
+			background:black;
+			padding-left: 15px;
+			display: none;
+		}
+		.mobileNavMenu > div{
+		}
+		.mobileNavMenu a{
+			text-decoration: none;
+		}
+		.mobileNavMenu img{
+			padding-top: 5px;
+			padding: 5px;
+			float: left;
+			background:black;
+			clear: both;
+		}
+		.mobileNavMenu p{
+			padding: 20px;
+			margin-left: 80px;
+			background: #009688;
+			color: white;
+		}
+		.mobileNavMenu a:hover p{
+			background: white;
+			color: #009688;
+		}
+		 /*THIS THE WHOLE DESKTOP VERSION*/
+		.container{
+			width: 100%;
+			display: grid;
+			grid-template-columns: 25% 50% 20%;
+			grid-column-gap: 1%;
+			grid-auto-rows: minmax(700px,auto);
+		}
+		.container > div{
+			/*border: 1px solid black;*/
+		}
+		 /*THIS STYLE THE LEFT SIDE OF THE BODY*/
+		.leftSide nav{
+			position: fixed;
+			top: 30%;
+			width: 200px;
+		}
+		.leftSide nav ul{
+			list-style: none;
+		}
+		.leftSide nav a{
+			text-decoration: none;
+			display:block;
+			padding: 10px;
+			color: #009688;
+
+		}
+		.leftSide nav a:hover{
+			background: #009688;
+			color: white;
+			padding-left: 30px;
+			-webkit-transition:all .40s ease;
+		}
+		/*THIS STYLE THE CENTER OF THE BODY*/
+		.center .item{
+			/*height: 400px;*/
+			/*padding: 0px 20px 0px 20px;*/
+			background: white;
+			padding-bottom: 20px;
+			margin-top: 20px;
+			margin-bottom: 20px;
+			-webkit-animation-timing-function: ease-in;
+			animation-timing-function: ease-in
+		}
+		.item video{
+			width: 100%;
+			height: auto;
+			margin-bottom: 20px;
+		}
+		.item p{
+			color: blue;
+			margin-left: 10px;
+			cursor: pointer;
+			width: 20px;
+		}
+		.item img{
+			width:100%;
+			height:auto;
+			/*margin-left: 10px;*/
+			margin-bottom: 10px;
+		}
+		
+		 /*THIS STYLE THE RIGHT SIDE OF THE BODY*/
+		 .rightSide nav{
+		 	position: fixed;
+		 	top: 100px;
+		 	float: right;
+		 	clear: both;
+			padding-top: 10px;
+			width: 150px;
+			display: none;
+		}
+		.rightSide nav ul{
+			list-style: none;
+			text-align: right;
+		}
+		.rightSide nav a{
+			text-decoration: none;
+			display:block;
+			padding: 10px;
+			padding-right: 20px;
+			color: #009688;
+
+		}
+		.rightSide nav a:hover{
+			background: #009688;
+			color: white;
+			padding-right: 30px;
+			-webkit-transition:all .40s ease;
+		}
+		    /*THIS WHERE   WE STYLE THE MOBILE VERSION*/
+		@media only screen and (max-width: 900px){
+			#mobileDisplayIcon{
+				display: inline-block;
+			}
+			.leftSide nav{
+				display: none;
+			}
+			.container{
+				grid-template-columns: 1% 90% 1%;
+			}
+			.center .item{
+				display: block;
+				width: 100%;
+				height: auto;
+			}
+			/*.item iframe{
+				width: 100%;
+			}
+			.item iframe, p{
+				padding: 10px;
+			}*/
+			.rightSide nav{
+				display: none;
+			}
+			.rightSide img{
+				display: none;
+			}
+			
+		}
+	</style>
+</head>
+<body>
+	<img onclick="displayMobileMenu();" id="mobileDisplayIcon" src="image/threelines.png">
+	<span onclick="hideMobileMenu()" id="mobileHideIcon">&times;</span>
+	<div class="mobileNavMenu" id="mobileNavMenu">
+		<div>
+			<a onclick="specialityfun()" href="#">
+				<img id="mobileMenuIcon" src="image/chemex.png">
+				<p>Speciality Coffee</p>
+			</a>
+		</div>
+		<!-- <div style="clear: both;"></div> -->
+		<div>
+			<a onclick="coffeesFun()" href="#">
+				<img id="mobileMenuIcon" src="image/clipart.jpg">
+				<p>Cupping</p>
+			</a>
+		</div>
+		<div>
+			<a onclick="latteArtFun()" href="#">
+				<img id="mobileMenuIcon" src="image/latteArt.jpg">
+				<p>Latte Art</p>
+			</a>
+		</div>
+		<!-- <div>
+			<a href="article.html">
+				<img id="mobileMenuIcon" src="image/bar.png">
+				<p>Service</p>
+			</a>
+		</div> -->
+		<div>
+			<a href="work.html">
+				<img id="mobileMenuIcon" src="image/bar.png">
+				<p>Experience</p>
+			</a>
+		</div>
+		<div>
+			<a href="contact.html">
+				<img id="mobileMenuIcon" style="width: 30px; padding: 15px;" src="image/contact.png">
+				<p>Contact</p>
+			</a>
+		</div>
+		<div>
+			<a href="gallery.html">
+				<img id="mobileMenuIcon" style="width: 30px; padding: 15px;" src="image/experience.jpg">
+				<p>Gallery</p>
+			</a>
+		</div>
+		<div>
+			<a href="downloads/DennisCv.pdf">
+				<img id="mobileMenuIcon" src="image/download.png">
+				<p>Download</p>
+			</a>
+		</div>
+	</div>
+	<div class="container">
+		<div class="leftSide">
+			<nav>
+				<ul>
+					<li><a onclick="coffeesFun()" href="#">Coffees</a></li>
+					<li><a onclick="cuppingFun()" href="#">Cupping</a></li>
+					<li><a onclick="specialityfun()" href="#">Speciality Coffee</a></li>
+					<li><a onclick="latteArtFun()" href="#">Latte art</a></li>
+					<li><a href="downloads/DennisCv.pdf">Download</a></li>
+				</ul>
+			</nav>
+		</div>
+		<div class="center">
+			<div class="item">
+				<img src="image/dennis-atuti-26.jpg">
+				<p><span style="color: black;display: inline;">Facebook: </span>@dennisruie</p>
+				<p><span style="color: black;display: inline;">Instagram: </span>@dennis_ruie</p>
+				<p><span style="color: black;display: inline;">WhatsApp: </span>+254723872059</p>
+				<p><span style="color: black;display: inline;">Email: </span>atutidennis@gmail.com</p>
+			</div>
+			<!-- <div class="item Cupping">
+				<iframe width="100%" height="350" src="https://www.youtube.com/embed/cH3vEXaaQto" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<p>#Best_coffeeshop</p>
+				<p>#DIFC_yadoti_coffeeshop</p>
+				<p>#Barista_on_demand</p>
+				<p>#Be_coffinated</p>
+			</div> -->
+			<div class="item Cupping">
+				<!-- <video  poster="image/welcome.jpg" controls>
+					<source src="video/edited/atutiIntro.mp4" type="video/mp4">
+				</video> -->
+				<iframe width="100%" height="350" src="https://www.youtube.com/embed/hNE5QoKcFc4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<p>#Best_coffeeshop</p>
+				<p>#DIFC_yadoti_coffeeshop</p>
+				<p>#Barista_on_demand</p>
+				<p>#Be_coffinated</p>
+			</div>
+			<div class="item Cupping speciality">
+				<!-- <video  poster="image/heart.jpg" controls>
+					<source src="video/edited/atutiEspresso2.mp4" type="video/mp4">
+				</video> -->
+				<iframe width="100%" height="340" src="https://www.youtube.com/embed/hNE5QoKcFc4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<p>#Espresso</p>
+				<p>#Cupping</p>
+				<p>#Brazilian_beans</p>
+				<p>#Dark_chocolate_taste</p>
+			</div>
+			<div class="item latteArt">
+				<!-- <video  poster="image/dennis-atuti-29.jpg" controls>
+					<source src="video/edited/atuti20.mp4" type="video/mp4">
+				</video> -->
+				<iframe width="100%" height="350" src="https://www.youtube.com/embed/xDtUJtAr8gI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<p>#guatemala_beans</p>
+				<p>#cappucino</p>
+				<p>#caramel_taste</p>
+				<p>#swin</p>
+			</div>
+			<div class="item latteArt">
+				<!-- <video  poster="image/roseta.png" controls>
+					<source src="video/edited/atuti19.mp4" type="video/mp4">
+				</video> -->
+				<iframe width="100%" height="350" src="https://www.youtube.com/embed/eLWfFzVpQfg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<p>#guatemala_beans</p>
+				<p>#Latte</p>
+				<p>#caramel_taste</p>
+			</div>
+			<div class="item latteArt">
+				<!-- <video poster="image/heart.jpg" controls>
+					<source src="video/edited/atuti1.mp4" type="video/mp4">
+				</video> -->
+				<iframe width="100%" height="350" src="https://www.youtube.com/embed/cH3vEXaaQto" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<p>#Heart</p>
+				<p>#peru_beans</p>
+				<p>#Cappuccino</p>
+				<p>#smokey_taste</p>
+			</div>
+			<div class="item Cupping latteArt">
+				<!-- <video poster="image/java.jpg" controls>
+					<source src="video/edited/atutijavahouse2.mp4" type="video/mp4">
+				</video> -->
+				<iframe width="100%" height="350" src="https://www.youtube.com/embed/pq4XiOZuBYI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<p>#javahouseafrica</p>
+				<p>#kenyan_beans</p>
+				<p>#citrus_flavor</p>
+			</div>
+			<div class="item latteArt">
+				<img src="image/dennis-atuti-28.jpg">
+				<p>#spicy_latte_machiato</p>
+				<p>#javahouseafrica</p>
+				<p>#kenyan_beans</p>
+				<p>#citrus_flavor</p>
+			</div>
+			<div class="item latteArt">
+				<!-- <video  poster="image/roseta2.jpg" controls>
+					<source src="video/edited/atuti2.mp4" type="video/mp4">
+				</video> -->
+				<iframe width="100%" height="350" src="https://www.youtube.com/embed/OBI5EQsusOU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<p>#guatemala_beans</p>
+				<p>#cappuccino</p>
+				<p>#caramel_taste</p>
+			</div>
+			<div class="item Cupping speciality">
+				<img src="image/dennis-atuti-5.jpg">
+				<p>#my_menu</p>
+				<p>#yadoti_cafe</p>
+			</div>
+			<div class="item latteArt">
+				<!-- <video  poster="image/roseta3.jpg" controls>
+					<source src="video/edited/atuti3.mp4" type="video/mp4">
+				</video> -->
+				<iframe width="100%" height="350" src="https://www.youtube.com/embed/Nl5UIMiNim8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<p>#peru_beans</p>
+				<p>#Cappuccino</p>
+				<p>#smokey_taste</p>
+			</div>
+			<div class="item Cupping speciality">
+				<img src="image/dennis-atuti-14.jpg">
+				<p>#V60</p>
+				<p>#bolivian_bean</p>
+				<p>#blueberry_taste</p>
+				<p>#yadoti_cafe</p>
+			</div>
+			<div class="item speciality Cupping">
+				<iframe width="100%" height="350" src="https://www.youtube.com/embed/sCFD3Ta3No0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<!-- <video  poster="image/syphon.jpg" controls>
+					<source src="video/edited/atuti4.mp4" type="video/mp4">
+				</video> -->
+				<p>#ethiopian_beans</p>
+				<p>#syphon</p>
+				<p>#orange_taste</p>
+			</div>
+			<div class="item latteArt">
+				<iframe width="100%" height="350" src="https://www.youtube.com/embed/5cljHumfRwc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<!-- <video  poster="image/roseta4.jpg" controls>
+					<source src="video/edited/atuti5.mp4" type="video/mp4">
+				</video> -->
+				<p>#Brazilian_beans</p>
+				<p>#cappucino</p>
+				<p>#Dark_chocolate_taste</p>
+			</div>
+			<div class="item latteArt">
+				<iframe width="100%" height="350" src="https://www.youtube.com/embed/QjK6jmCMhGM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<!-- <video  poster="image/heart.jpg" controls>
+					<source src="video/edited/atuti6.mp4" type="video/mp4">
+				</video> -->
+				<p>#piccollo</p>
+				<p>#Brazilian_beans</p>
+				<p>#Dark_chocolate_taste</p>
+			</div>
+			<div class="item Cupping speciality">
+				<img src="image/dennis-atuti-8.jpg">
+				<p>#Aeropress</p>
+				<p>#V60</p>
+				<p>#chemex</p>
+			</div>
+			<div class="item latteArt">
+				<iframe width="100%" height="350" src="https://www.youtube.com/embed/r0xF9JDpKxc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<!-- <video  poster="image/tulip.jpg" controls>
+					<source src="video/edited/atuti7.mp4" type="video/mp4">
+				</video> -->
+				<p>#guatemala_beans</p>
+				<p>#flat_white</p>
+				<p>#caramel_taste</p>
+			</div>
+			<div class="item latteArt">
+				<iframe width="100%" height="350" src="https://www.youtube.com/embed/hVNhBW0lJbE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<!-- <video oster="image/tulip2.jpg" controls>
+					<source src="video/edited/atuti8.mp4" type="video/mp4">
+				</video> -->
+				<p>#peru_beans</p>
+				<p>#smokey_taste</p>
+				<p>#machiato</p>
+			</div>
+			<div class="item latteArt">
+				<iframe width="100%" height="350" src="https://www.youtube.com/embed/wQi_2ZRICJY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<!-- <video  poster="image/tulip.jpg" controls>
+					<source src="video/edited/atuti9.mp4" type="video/mp4">
+				</video> -->
+				<p>#guatemala_beans</p>
+				<p>#piccollo</p>
+				<p>#caramel_taste</p>
+			</div>
+			<div class="item latteArt">
+				<iframe width="100%" height="350" src="https://www.youtube.com/embed/xfhA4RFdBQI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<!-- <video  poster="image/tulip.jpg" controls>
+					<source src="video/edited/atuti10.mp4" type="video/mp4">
+				</video> -->
+				<p>#latte</p>
+				<p>#Brazilian_beans</p>
+				<p>#Dark_chocolate_taste</p>
+			</div>
+			<div class="item latteArt">
+				<iframe width="100%" height="350" src="https://www.youtube.com/embed/gJJYwpVEkkQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<!-- <video  poster="image/roseta.png" controls>
+					<source src="video/edited/atuti11.mp4" type="video/mp4">
+				</video> -->
+				<p>#peru_beans</p>
+				<p>#flat_white</p>
+				<p>#smokey_taste</p>
+			</div>
+			<div class="item latteArt">
+				<iframe width="100%" height="350" src="https://www.youtube.com/embed/uH7k8c87Sik" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<!-- <video  poster="image/dennis-atuti-21.jpg" controls>
+					<source src="video/edited/atuti12.mp4" type="video/mp4">
+				</video> -->
+				<p>#guatemala_beans</p>
+				<p>#cappucino</p>
+				<p>#caramel_taste</p>
+			</div>
+			<!-- <div class="item latteArt">
+				<video  poster="image/dennis-atuti-20.jpg" controls>
+					<source src="video/edited/atuti13.mp4" type="video/mp4">
+				</video>
+				<p>#guatemala_beans</p>
+				<p>#latte</p>
+				<p>#caramel_taste</p>
+				<p>#full_body</p>
+			</div> -->
+			<div class="item latteArt">
+				<iframe width="100%" height="350" src="https://www.youtube.com/embed/xEna4OWu-vA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<!-- <video  poster="image/dennis-atuti-16.jpg" controls>
+					<source src="video/edited/atuti14.mp4" type="video/mp4">
+				</video> -->
+				<p>#Brazilian_beans</p>
+				<p>#Dark_chocolate_taste</p>
+				<p>#natty</p>
+			</div>
+			<div class="item latteArt">
+				<iframe width="100%" height="350" src="https://www.youtube.com/embed/tdzc4j3-H5I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<!-- <video poster="image/dragon.jpg" controls>
+					<source src="video/edited/atuti15.mp4" type="video/mp4">
+				</video> -->
+				<p>#scopion</p>
+				<p>#Cappuccino</p>
+			</div>
+			<div class="item latteArt">
+				<iframe width="100%" height="350" src="https://www.youtube.com/embed/XH4WqgR6BAs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<!-- <video  poster="image/dennis-atuti-24.jpg" controls>
+					<source src="video/edited/atuti16.mp4" type="video/mp4">
+				</video> -->
+				<p>#latte</p>
+				<p>#Brazilian_beans</p>
+				<p>#brown_sugar_after_taste</p>
+			</div>
+			<div class="item latteArt">
+				<iframe width="100%" height="350" src="https://www.youtube.com/embed/K7-7mCATmik" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<!-- <video  poster="image/dragon.jpg" controls>
+					<source src="video/edited/atuti17.mp4" type="video/mp4">
+				</video> -->
+				<p>#scorpion</p>
+				<p>#latte</p>
+			</div>
+			<div class="item latteArt">
+				<iframe width="100%" height="315" src="https://www.youtube.com/embed/ukdb7niHVQc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<!-- <video  poster="image/bear.jpg" controls>
+					<source src="video/edited/atuti18.mp4" type="video/mp4">
+				</video> -->
+				<p>#bear</p>
+				<p>#latteArt</p>
+				<p>#Flat_white</p>
+			</div>
+			<cite>@all right preserved to atuti dennis 2018</cite>
+		</div>
+		<div class="rightSide">
+			<img onclick="displayDesktopMenu()" style="width: 50px; height: auto;/*float: right;clear: both*/;padding: 10px;cursor: pointer; position: fixed; right:10px;top: 10px;" src="image/threelines.png" id="desktopDisplayIcon">
+			<span onclick="hideDesktopMenu()" style="font-weight: bold;font-size: 80px; /*float: right;clear: both*/;/*margin: 10px*/;cursor: pointer; display: none;position: fixed; right: 15px;" id="desktopHideIcon">&times;</span>
+			<nav id="desktopNavMenu">
+				<ul>
+					<li><a href="work.html">Experience</a></li>
+					<li><a href="contact.html">Contact</a></li>
+					<li><a href="gallery.html">Gallery</a></li>
+					<li><a href="downloads/DennisCv.pdf">Download</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+	<script type="text/javascript">
+		 // THIS IS THE MOBILE VARIABLES
+		var mobileDisplayIcon = document.getElementById("mobileDisplayIcon");
+		var mobileHideIcon = document.getElementById("mobileHideIcon");
+		var mobileNavMenu = document.getElementById("mobileNavMenu");
+
+		// THIS IS THE DESKTOP VARIABLES
+
+		var desktopDisplayIcon  = document.getElementById("desktopDisplayIcon");
+		var desktopHideIcon = document.getElementById("desktopHideIcon");
+		var desktopNavMenu = document.getElementById("desktopNavMenu");
+
+
+		// THIS ARE THE MOBILE FUNCTIONS
+		function displayMobileMenu (){
+			mobileDisplayIcon.style.display ="none";
+			mobileHideIcon.style.display ="inline-block";
+			mobileNavMenu.style.display ="block";
+
+		}function  hideMobileMenu(){
+			mobileDisplayIcon.style.display ="block";
+			mobileHideIcon.style.display ="none";
+			mobileNavMenu.style.display ="none";
+		}
+		// THIS ARE THE DESKTOP FUNCTIONS
+		function displayDesktopMenu(){
+			desktopDisplayIcon.style.display = "none";
+			desktopHideIcon.style.display = "inline-block";
+			desktopNavMenu.style.display = "inline-block";
+
+		}
+		function hideDesktopMenu(){
+			desktopNavMenu.style.display = "none";
+			desktopHideIcon.style.display ="none";
+			desktopDisplayIcon.style.display ="inline-block";
+		}
+		function coffeesFun(){
+			$(".item").css("display","block");
+			$(".mobileNavMenu").css("display","none");
+			// $("#mobileHideIcon").css("display","none");
+			// $("#mobileDisplayIcon").css("display","block");
+		}
+		function cuppingFun(){
+			$(".item").css("display","none");
+			$(".Cupping").css("display","block");
+			$(".mobileNavMenu").css("display","none");
+		}
+		function specialityfun(){
+			$(".item").css("display","none");
+			$(".speciality").css("display","block");
+			$(".mobileNavMenu").css("display","none");
+		}
+		function latteArtFun(){
+			$(".item").css("display","none");
+			$(".latteArt").css("display","block");
+			$(".mobileNavMenu").css("display","none");
+			// $("#mobileHideIcon").css("display","none");
+			// $("#mobileDisplayIcon").css("display","block");
+		}
+
+
+	</script>
+</body>
+</html>
